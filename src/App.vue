@@ -23,7 +23,7 @@
     </ul>
     <ul>
       <li>
-        <template v-for="(base, idx) in bases" :key="idx">
+        <template v-for="(base, idx) in bases" :key="base.id">
           <label>
             <input
             type="radio"
@@ -39,7 +39,7 @@
       </ul>
       <ul>
         <li>
-          <template v-for="(syrup, idx) in syrups" :key="idx">
+          <template v-for="(syrup, idx) in syrups" :key="syrup.id">
             <label>
               <input
                 type="radio"
@@ -55,7 +55,7 @@
       </ul>
       <ul>
         <li>
-          <template v-for="(creamer, idx) in creamers" :key="idx">
+          <template v-for="(creamer, idx) in creamers" :key="creamer.id">
             <label>
               <input
                 type="radio"
