@@ -17,12 +17,62 @@
         </template>
       </li>
     </ul>
-  </div>
+    <ul>
+      <li>
+        <template v-for="(base, idx) in bases" :key="idx">
+          <label>
+            <input
+            type="radio"
+            name="base"
+            :id="base.id"
+            :value="base"
+            v-model="selectedBase"
+            />
+            {{ base.name}}
+          </label>
+        </template>
+      </li>
+      </ul>
+      <ul>
+        <li>
+          <template v-for="(creamer, idx) in creamers" :key="idx">
+            <label>
+              <input
+                type="radio"
+                name="creamer"
+                :id="`r${creamer}`"
+                :value="creamer"
+                v-model="selectedCreamer"
+              />
+              {{ creamer.name }}
+            </label>
+          </template>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <template v-for="(syrup, idx) in syrups" :key="idx">
+            <label>
+              <input
+                type="radio"
+                name="syrup"
+                :id="`r${syrup}`"
+                :value="syrup"
+                v-model="selectedSyrup"
+              />
+              {{ syrup.name }}
+            </label>
+          </template>
+        </li>
+      </ul>
+    </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import Beverage from "./components/Beverage.vue";
-import { temps, currentTemp } from "./stores/beverage";
+import { bases, creamers, currentTemp, syrups, temps } from "./stores/beverage";
+const selectedBase = ref(bases.value[0]);
 </script>
 
 <style lang="scss">
