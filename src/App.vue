@@ -39,32 +39,32 @@
       </ul>
       <ul>
         <li>
-          <template v-for="(creamer, idx) in creamers" :key="idx">
+          <template v-for="(syrup, idx) in syrups" :key="idx">
             <label>
               <input
                 type="radio"
-                name="creamer"
-                :id="`r${creamer}`"
-                :value="creamer"
-                v-model="selectedCreamer"
+                name="syrup"
+                :id="syrup.id"
+                :value="syrup"
+                v-model="selectedSyrup"
               />
-              {{ creamer.name }}
+              {{ syrup.name }}
             </label>
           </template>
         </li>
       </ul>
       <ul>
         <li>
-          <template v-for="(syrup, idx) in syrups" :key="idx">
+          <template v-for="(creamer, idx) in creamers" :key="idx">
             <label>
               <input
                 type="radio"
-                name="syrup"
-                :id="`r${syrup}`"
-                :value="syrup"
-                v-model="selectedSyrup"
+                name="creamer"
+                :id="creamer.id"
+                :value="creamer"
+                v-model="selectedCreamer"
               />
-              {{ syrup.name }}
+              {{ creamer.name }}
             </label>
           </template>
         </li>

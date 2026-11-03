@@ -1,5 +1,8 @@
 <template>
-  <div class="syrup" :style="{ backgroundColor: props.selectedSyrup.color }"></div>
+   <div
+    class="syrup"
+    :style="{ '--syrup-color': props.selectedSyrup.color }"
+  ></div>
 </template>
 
 <script setup lang="ts">
@@ -13,6 +16,13 @@ const props = defineProps<SyrupProp>();
 <style lang="scss" scoped>
 .syrup {
   transform: translateY(400%);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--syrup-color) 0px,
+    var(--syrup-color) 10px,
+    #E1CF95 10px,
+    #E1CF95 20px
+);
   position: relative;
   width: 100%;
   height: 20%;

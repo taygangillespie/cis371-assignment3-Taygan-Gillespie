@@ -4,10 +4,16 @@
     <Hot v-else />
     <Contents>
       <template v-slot:top>
-        <Creamer :selectedCreamer="props.selectedCreamer" />
+        <Creamer
+          v-if="hasCreamer"
+          :selectedCreamer="props.selectedCreamer"
+        />
       </template>
       <template v-slot:mid>
-        <Syrup :selectedSyrup="props.selectedSyrup" />
+        <Syrup
+          v-if="hasSyrup"
+          :selectedSyrup="props.selectedSyrup"
+        />
       </template>
       <template v-slot:bottom>
         <Base :selectedBase="props.selectedBase" />
@@ -16,6 +22,7 @@
   </Mug>
 </template>
 <script setup lang="ts">
+import { computed } from "vue";
 import Base from "./Base.vue";
 import Cold from "./Cold.vue";
 import Contents from "./Contents.vue";
@@ -38,4 +45,6 @@ type Props = {
 };
 
 const props = defineProps<Props>();
+const hasCreamer = computed(() => props.selectedCreamer.name !== "No Cream");
+const hasSyrup = computed(() => props.selectedSyrup.name !== "No Syrup");
 </script>

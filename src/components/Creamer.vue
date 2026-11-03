@@ -1,6 +1,11 @@
 <template>
-  <div class="froth" :style="{ backgroundColor: props.selectedCreamer.color }">
-    <div v-for="n in 5" :key="n" class="foam" :style="{ backgroundColor: props.selectedCreamer.color }"></div>
+  <div class="froth">
+    <div
+      v-for="n in 5"
+      :key="n"
+      class="foam"
+      :style="{ backgroundColor: props.selectedCreamer.color }"
+    ></div>
   </div>
 </template>
 
@@ -17,6 +22,7 @@ const props = defineProps<CreamerProp>();
 .froth {
   overflow: visible;
   transform: translateY(400%);
+  background-color: #c6c6c6;
   position: relative;
   height: 20%;
   width: 100%;
